@@ -1,0 +1,9 @@
+# Excluding node modules 
+**/node_modules
+
+# Excluding build output
+/dist
+
+# Exluding env variables
+.env
+start_dev.sh
