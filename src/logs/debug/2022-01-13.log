@@ -1,0 +1,8 @@
+2022-01-13 23:29:27 info: ::ffff:127.0.0.1 - - [14/Jan/2022:05:29:27 +0000] "GET / HTTP/1.1" 200 2 "-" "-"
+2022-01-13 23:29:30 info: ::ffff:127.0.0.1 - - [14/Jan/2022:05:29:30 +0000] "GET /users HTTP/1.1" 200 31 "-" "-"
+2022-01-13 23:29:30 error: [POST] /users >> StatusCode:: 500, Message:: callback is not a function
+2022-01-13 23:29:30 info: ::ffff:127.0.0.1 - - [14/Jan/2022:05:29:30 +0000] "POST /users HTTP/1.1" 500 40 "-" "-"
+2022-01-13 23:29:30 error: [PUT] /users/1 >> StatusCode:: 409, Message:: You're email test@email.com already exists
+2022-01-13 23:29:30 info: ::ffff:127.0.0.1 - - [14/Jan/2022:05:29:30 +0000] "PUT /users/1 HTTP/1.1" 409 56 "-" "-"
+2022-01-13 23:29:30 error: [DELETE] /users/1 >> StatusCode:: 500, Message:: Cast to ObjectId failed for value "1" (type string) at path "_id" for model "User"
+2022-01-13 23:29:30 info: ::ffff:127.0.0.1 - - [14/Jan/2022:05:29:30 +0000] "DELETE /users/1 HTTP/1.1" 500 102 "-" "-"

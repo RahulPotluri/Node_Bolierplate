@@ -1,0 +1,3 @@
+2022-01-13 23:29:30 error: [POST] /users >> StatusCode:: 500, Message:: callback is not a function
+2022-01-13 23:29:30 error: [PUT] /users/1 >> StatusCode:: 409, Message:: You're email test@email.com already exists
+2022-01-13 23:29:30 error: [DELETE] /users/1 >> StatusCode:: 500, Message:: Cast to ObjectId failed for value "1" (type string) at path "_id" for model "User"

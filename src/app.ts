@@ -1,5 +1,4 @@
 import 'reflect-metadata';
-import './index';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
 import config from './config';
@@ -7,8 +6,10 @@ import express from 'express';
 import helmet from 'helmet';
 import hpp from 'hpp';
 import morgan from 'morgan';
+import { connect, set } from 'mongoose';
 import { useExpressServer, getMetadataArgsStorage } from 'routing-controllers';
 import { routingControllersToSpec } from 'routing-controllers-openapi';
+import { dbConnection } from './databases';
 import swaggerUi from 'swagger-ui-express';
 import errorMiddleware from './middlewares/error.middleware';
 import { logger, stream } from './utils/logger';
@@ -23,6 +24,7 @@ class App {
     this.port = process.env.PORT || 3000;
     this.env = process.env.NODE_ENV || 'development';
 
+    this.connectToDatabase();
     this.initializeMiddlewares();
     this.initializeRoutes(Controllers);
     this.initializeSwagger(Controllers);
@@ -40,6 +42,14 @@ class App {
 
   public getServer() {
     return this.app;
+  }
+
+  private connectToDatabase() {
+    if (this.env !== 'production') {
+      set('debug', true);
+    }
+
+    connect(dbConnection.url, dbConnection.options);
   }
 
   private initializeMiddlewares() {

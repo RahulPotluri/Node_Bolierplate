@@ -1,6 +1,11 @@
 const config_prod = {
     env: "production",
     secretKey: "secretKey",
+    dbConfig: {
+        host: "localhost",
+        database: "football",
+        port: 27017
+    },
     log: {
         format: "combined",
         dir: "../logs"

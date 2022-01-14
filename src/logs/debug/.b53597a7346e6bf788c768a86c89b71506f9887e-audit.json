@@ -1,0 +1,14 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "/Users/rahulpotluri/Documents/projects/vscode/api_football/src/logs/debug/.b53597a7346e6bf788c768a86c89b71506f9887e-audit.json",
+    "files": [
+        {
+            "date": 1642138167391,
+            "name": "/Users/rahulpotluri/Documents/projects/vscode/api_football/src/logs/debug/2022-01-13.log",
+            "hash": "ce86076cfc15955a1651aa1d8a666b1c"
+        }
+    ]
+}

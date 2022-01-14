@@ -1,4 +1,5 @@
 import { Controller, Param, Body, Get, Post, Put, Delete, HttpCode, UseBefore } from 'routing-controllers';
+
 import { CreateUserDto } from '../dtos/users.dto';
 import { User } from '../interfaces/users.interface';
 import userService from '../services/users.service';
@@ -16,8 +17,8 @@ export class UsersController {
 
   @Get('/users/:id')
   async getUserById(@Param('id') userId: number) {
-    const findOneUserData: User = await this.userService.findUserById(userId);
-    return { data: findOneUserData, message: 'findOne' };
+      const findOneUserData: User = await this.userService.findUserById(userId.toString());
+      return { data: findOneUserData, message: 'findOne' };
   }
 
   @Post('/users')
@@ -30,14 +31,14 @@ export class UsersController {
 
   @Put('/users/:id')
   @UseBefore(validationMiddleware(CreateUserDto, 'body', true))
-  async updateUser(@Param('id') userId: number, @Body() userData: CreateUserDto) {
-    const updateUserData: User[] = await this.userService.updateUser(userId, userData);
+  async updateUser(@Param('id') userId: string, @Body() userData: CreateUserDto) {
+    const updateUserData: User = await this.userService.updateUser(userId, userData);
     return { data: updateUserData, message: 'updated' };
   }
 
   @Delete('/users/:id')
-  async deleteUser(@Param('id') userId: number) {
-    const deleteUserData: User[] = await this.userService.deleteUser(userId);
+  async deleteUser(@Param('id') userId: string) {
+    const deleteUserData: User = await this.userService.deleteUser(userId);
     return { data: deleteUserData, message: 'deleted' };
   }
 }
