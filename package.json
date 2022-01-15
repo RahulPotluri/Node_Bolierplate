@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "start": "npm run build && cross-env NODE_ENV=production node dist/server.js",
-    "dev": "npm run build &&  cross-env NODE_ENV=development node dist/server.js",
+    "dev": "npm run build &&  cross-env NODE_ENV=development ts-node src/server.ts",
     "debug": "cross-env NODE_ENV=development nodemon dist/server.js",
     "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
     "test": "jest --forceExit --detectOpenHandles",

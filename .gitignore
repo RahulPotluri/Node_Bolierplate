@@ -7,3 +7,4 @@
 # Exluding env variables
 .env
 start_dev.sh
+
